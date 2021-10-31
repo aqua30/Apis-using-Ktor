@@ -14,6 +14,7 @@ fun Application.registerDogsRoute() {
         route("/dogs") {
             addDogRoute()
             getDogRoute()
+            getDogsRoute()
             deleteDogRoute()
         }
     }
@@ -28,6 +29,17 @@ fun Route.addDogRoute() {
 }
 
 fun Route.getDogRoute() {
+    get("{id}") {
+        val id = call.parameters["id"]?.toInt()
+        val dog = dogs.find { it.id == id }
+        dog?.let {
+            call.respond(HttpStatusCode.Found, it)
+        } ?: call.respond(HttpStatusCode.NotFound, "No dog found with id $id")
+
+    }
+}
+
+fun Route.getDogsRoute() {
     get {
         if (dogs.isNotEmpty())
             call.respond(HttpStatusCode.OK, dogs)
@@ -38,14 +50,14 @@ fun Route.getDogRoute() {
 
 fun Route.deleteDogRoute() {
     delete("{id}") {
-        val dogId = call.parameters["id"]?.toInt() ?: return@delete call.respond(
+        val id = call.parameters["id"]?.toInt() ?: return@delete call.respond(
             HttpStatusCode.BadRequest,
             "Dog id required"
         )
-        if (dogs.removeIf { it.id == dogId })
+        if (dogs.removeIf { it.id == id })
             call.respond(HttpStatusCode.Accepted, "Dog removed successfully")
         else
-            call.respond(HttpStatusCode.NotFound, "Dog is not found")
+            call.respond(HttpStatusCode.NotFound, "No dog found with id $id")
     }
 }
 
