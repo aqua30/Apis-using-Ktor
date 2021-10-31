@@ -1,0 +1,4 @@
+t2021-10-30 14:05:43.094 [Test worker] INFO  ktor.test - Autoreload is disabled because the development mode is off.
+^2021-10-30 14:05:43.104 [Test worker] INFO  ktor.test - Application started in 0.068 seconds.
+w2021-10-30 14:05:43.554 [Test worker] INFO  ktor.test - Application stopping: io.ktor.application.Application@37c2b55f
+v2021-10-30 14:05:43.555 [Test worker] INFO  ktor.test - Application stopped: io.ktor.application.Application@37c2b55f
