@@ -50,4 +50,4 @@ fun Route.deleteDogRoute() {
 }
 
 @Serializable
-data class Dog(val name: String, val color: String = "Unknown", val id: Int = 0)
+data class Dog(val name: String, val color: String = "Unknown", val breed: String = "Unknown", val id: Int = 0)

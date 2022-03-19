@@ -1,6 +1,7 @@
 package com.aqua30
 
 import com.aqua30.dogs.registerDogsRoute
+import com.aqua30.plugins.configureDatabase
 import com.aqua30.plugins.configureMonitoring
 import com.aqua30.plugins.configureSerialization
 import io.ktor.application.*
@@ -12,5 +13,6 @@ fun main(args: Array<String>): Unit =
 fun Application.module() {
     configureSerialization()
     configureMonitoring()
+    configureDatabase()
     registerDogsRoute()
 }

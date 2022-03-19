@@ -1,1 +1,1 @@
-rootProject.name = "com.aqua30.main"
+rootProject.name = "com.aqua30"
