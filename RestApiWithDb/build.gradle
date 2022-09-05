@@ -29,4 +29,7 @@ dependencies {
     // ktorm
     implementation 'org.ktorm:ktorm-core:3.5.0'
     implementation 'org.ktorm:ktorm-support-mysql:3.5.0'
+
+    // status pages for exception handling
+    implementation("io.ktor:ktor-server-status-pages:$ktor_version")
 }
